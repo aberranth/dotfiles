@@ -1,6 +1,6 @@
-###Small set of dotfiles.###
+### My small set of dotfiles.
 
-Install using pretty dump script:
+Install using dumb script:
 ```sh
 sh install.sh
 ```
