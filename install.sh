@@ -50,4 +50,10 @@ cd fonts
 cd ..
 rm -rf fonts
 
+# install winescript to be able to run Windows .bat files
+# curl http://dcjtech.info/wp-content/uploads/2015/02/winescript-v2015.02.08.zip --output winescript.zip
+# sudo unzip winescript.zip -d /usr/local/bin/
+# chmod +x /usr/local/bin/winescript
+# rm winescript.zip
+
 cd
