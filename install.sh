@@ -1,4 +1,15 @@
 #!/bin/sh
+sudo dnf install -y vim tmux emacs wmctrl xdotool exa ripgrep direnv mc yakuake
+sudo dnf group install "Development Tools"
+
+# install poweline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
+
 cd ~/dotfiles
 if [[ ! $(pwd) =~ "dotfiles" ]]; then exit; fi;
 
@@ -41,14 +52,6 @@ ln -sf ~/dotfiles/colorschemes/gruvbox-contrib/xresources/gruvbox-dark.xresource
 # cd translate-shell/
 # make PREFIX=~/.local install
 
-sudo dnf install -y emacs wmctrl xdotool exa ripgrep direnv
-
-# install poweline fonts
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
 
 # install winescript to be able to run Windows .bat files
 # curl http://dcjtech.info/wp-content/uploads/2015/02/winescript-v2015.02.08.zip --output winescript.zip
