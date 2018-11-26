@@ -64,6 +64,7 @@ Plugin 'tpope/vim-obsession'
 " Bbye allows you to do delete buffers (close files) without closing your
 " windows or messing up your layout.
 Plugin 'olegtc/vim-bbye'
+" Colorschemes
 " Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
 Plugin 'romainl/flattened'
@@ -252,9 +253,9 @@ set winwidth=114
 " Real programmers don't use TABs but spaces
 " https://www.reddit.com/r/vim/wiki/tabstop
 set tabstop=8     " a tab is eight spaces
-set softtabstop=4 " This is useful to keep the 'ts' setting at its standard
+set softtabstop=2 " This is useful to keep the 'ts' setting at its standard
                   " value of 8, while being able to edit like it is set to 'sts'.
-set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftwidth=2  " number of spaces to use for autoindenting
 set expandtab     " insert spaces instead of tabs
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to
@@ -270,7 +271,6 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 "}}}
 " Custom autocmds {{{
-"
 ":help autocmd-events
 augroup vimrcEx
     " Clear all autocmds in the group
@@ -278,7 +278,8 @@ augroup vimrcEx
     autocmd FileType text setlocal textwidth=78
 
     "for ruby, autoindent with two spaces, always expand tabs
-    autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai shiftwidth=2 softtabstop=2 et
+    autocmd FileType ruby,haml,eruby,yaml,html,sass,cucumber set ai shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType javascript,vue set ai shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType json,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType json,xml setlocal foldmethod=syntax
 
@@ -438,6 +439,7 @@ map <leader>gR :call ShowRoutes()<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
 map <leader>ga :CtrlP app/assets<cr>
+map <leader>gj :CtrlP app/javascript/packs<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>
