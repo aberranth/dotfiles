@@ -439,7 +439,7 @@ map <leader>gR :call ShowRoutes()<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
 map <leader>ga :CtrlP app/assets<cr>
-map <leader>gj :CtrlP app/javascript/packs<cr>
+map <leader>gj :CtrlP app/javascript<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>

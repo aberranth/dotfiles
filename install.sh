@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo dnf install -y vim tmux emacs wmctrl xdotool exa ripgrep direnv mc yakuake
+sudo dnf install -y vim tmux emacs wmctrl xdotool xclip exa ripgrep direnv mc yakuake
 sudo dnf group install "Development Tools"
 
 # install poweline fonts
@@ -9,6 +9,10 @@ cd fonts
 cd ..
 rm -rf fonts
 
+# install Yarn and Node.js
+sudo dnf module install nodejs:8
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo dnf install yarn
 
 cd ~/dotfiles
 if [[ ! $(pwd) =~ "dotfiles" ]]; then exit; fi;
