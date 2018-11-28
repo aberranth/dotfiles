@@ -7,7 +7,7 @@
     editor = /usr/bin/vim
 [alias]
     yolo = !(git add -A && git commit -m \"$(curl -s whatthecommit.com/index.txt)\")
-    y = !(git add -A && git commit -msaved_at_`date +%Y-%m-%d_%H:%M:%S` && git pull --rebase && git push && echo "" && git log -1 --stat) || git pull --rebase && git push
+    y = !(git add -A && git commit -m \"🚧 state at $(date '+%Y-%m-%d %H:%M:%S')\" && git pull --rebase && git push && echo "" && git log -1 --stat) || git pull --rebase && git push
     st = status --short --branch
     co = checkout
     pr = pull --rebase
