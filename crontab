@@ -6,5 +6,9 @@
 # |   |   +--------- day of month (1 - 31)
 # |   +----------- hour (0 - 23)
 # +------------- min (0 - 59)
+# on Fedora, add 'CRONDARGS=-s -m off' to ~/etc/sysconfig/crond to redirect job
+# output to syslog
+#   '-s' argument will send the output to syslog
+#   '-m off' argument will disable crond from sending emails of the job output
 */15  *   *   *   * cd /home/random/org && git y
 
