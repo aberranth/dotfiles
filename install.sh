@@ -1,6 +1,8 @@
 #!/bin/sh
-sudo dnf install -y vim tmux emacs wmctrl xdotool xclip exa ripgrep direnv mc yakuake
-sudo dnf group install "Development Tools"
+sudo dnf install -y vim tmux emacs wmctrl xdotool xclip exa ripgrep direnv mc
+sudo dnf install -y yakuake
+sudo dnf group install -y "Development Tools"
+sudo dnf install -y postgresql-devel
 
 # install poweline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -10,9 +12,13 @@ cd ..
 rm -rf fonts
 
 # install Yarn and Node.js
-sudo dnf module install nodejs:8
+sudo dnf module install -y nodejs:8
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-sudo dnf install yarn
+sudo dnf install -y yarn
+# Tern is a stand-alone, editor-independent JavaScript analyzer that can be used
+# to improve the JavaScript integration of existing editors.
+# used by spacemacs
+sudo npm install -g tern
 
 # rpm-fusion packages
 sudo dnf install telegram-desktop

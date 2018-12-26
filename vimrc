@@ -64,12 +64,15 @@ Plugin 'tpope/vim-obsession'
 " Bbye allows you to do delete buffers (close files) without closing your
 " windows or messing up your layout.
 Plugin 'olegtc/vim-bbye'
+
 " Colorschemes
 " Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
 Plugin 'romainl/flattened'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'junegunn/seoul256.vim'
+" Fsociety's synthwave theme
+Plugin 'exitface/synthwave.vim'
 
 " lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline'
@@ -90,6 +93,8 @@ Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-eunuch'
 " Seamless switching between VIM windows and Tmux panes
 Plugin 'christoomey/vim-tmux-navigator'
+" Send command from vim to a running tmux session
+Plugin 'jgdavey/tslime.vim'
 " A Personal Wiki For Vim
 Plugin 'vimwiki/vimwiki'
 " Text outlining and task management for Vim based on Emacs' Org-Mode
@@ -138,10 +143,6 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'tpope/vim-projectionist'
 " rails.vim inspired tools for Phoenix
 Plugin 'c-brenn/phoenix.vim'
-" A Vim plugin that manages your tag files
-" Plugin 'ludovicchabant/vim-gutentags'
-" Fsociety's synthwave theme
-Plugin 'exitface/synthwave.vim'
 " ------------------------------------------------------------------------------
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -280,7 +281,7 @@ augroup vimrcEx
     "for ruby, autoindent with two spaces, always expand tabs
     autocmd FileType ruby,haml,eruby,yaml,html,sass,cucumber set ai shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType javascript,vue set ai shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType json,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
+    autocmd FileType json,xml,c set autoindent shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType json,xml setlocal foldmethod=syntax
 
     " Setting global variables for Ruby
@@ -407,6 +408,11 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 'never'
 " don't run linters on opening a file
 let g:ale_lint_on_enter = 0
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+let g:ale_completion_enabled = 1
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 " Map movement through errors without wrapping.
 nmap <silent> <leader>k <Plug>(ale_previous)
 nmap <silent> <leader>j <Plug>(ale_next)
@@ -457,6 +463,9 @@ map <leader>b  :CtrlPBuffer<cr>
 map <leader>r  :CtrlPMRU<cr>
 map <leader>F  :CtrlP %%<cr>
 "}}}
+" pgsql {{{
+let g:sql_type_default = 'pgsql'
+" }}}
 " Rails projections {{{
 "
 let g:rails_projections = {
@@ -501,6 +510,13 @@ elseif executable('rg')
     " Use ripgrep in ack
     let g:ackprg = 'rg --vimgrep'
 endif
+" }}}
+" tslime {{{
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
 " }}}
 " vim-airline {{{
 let g:airline_theme='gruvbox'

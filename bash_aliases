@@ -12,6 +12,7 @@ alias la='ls -a'
 # -F, --classify -- append indicator (one of */=>@|) to entries
 alias l='ls -CF'
 
+alias open='xdg-open'
 alias rg='rg --smart-case'
 alias spotify='spotify --force-device-scale-factor=2'
 # Add an "alert" alias for long running commands.  Use like so:
@@ -23,8 +24,9 @@ alias tns='trans -pager more --'
 alias csd='cap staging deploy'
 alias csr='cap staging puma:restart'
 alias gpu='git push'
-alias g='git st'
+alias g='git'
 
+alias erb='erb -U'
 function _guard_command () {
     if [ -e "bin/guard" ]; then
         bin/guard "$@"
