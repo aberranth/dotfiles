@@ -133,6 +133,8 @@ Plugin 'kovisoft/slimv'
 Plugin 'chr4/nginx.vim'
 " Syntax for PDP11-40 assembly
 Plugin 'olegtc/asmpdp11'
+" PDP11 syntax for GNU assembler
+Plugin 'aberranth/vim-gas-pdp11'
 " Syntax for Z80 assembly
 Plugin 'cpcsdk/vim-z80-democoding'
 " The best PostgreSQL plugin for Vim!
@@ -404,6 +406,7 @@ let g:ale_fixers = {
             \}
 let g:ale_linters = {
             \'elixir': ['credo'],
+            \'gaspdp11': ['/home/random/opt/binutils-pdp11/pdp11-dec-aout/bin/as'],
             \}
 let g:ale_lint_on_text_changed = 'never'
 " don't run linters on opening a file
