@@ -300,6 +300,7 @@ augroup vimrcEx
 
     autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
+    autocmd BufRead *.s set fileformat=unix filetype=gas tabstop=8 expandtab shiftwidth=4 autoindent
     autocmd BufRead *.md set ai formatoptions=tcroqn2 comments=n:&gt;
     autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:&gt;
     autocmd BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:&gt;
