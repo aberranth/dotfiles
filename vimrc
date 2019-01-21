@@ -543,6 +543,10 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 " }}}
+" GNU Assembler {{{
+" 186 286 3862 386 486 8086 amd arm avr future ia64 katmai nehalem p6 pentium_m pentium prescott sandybridge x642 x64
+" let g:gasDisableOpcodes='x64'
+" }}}
 " vim-rails {{{
 nnoremap <C-@> :A<CR>
 " }}}
