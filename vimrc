@@ -210,7 +210,6 @@ set noerrorbells   " don't beep
 set foldmethod=marker
 "}}}
 " GUI options {{{
-
 if has("gui_running")
     if has("gui_gtk2") || has("gui_gtk3")
         "set guifont=Source\ Code\ Pro\ for\ Powerline\ 13
@@ -525,7 +524,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 let g:airline_theme='gruvbox'
 " let g:airline_theme='synthwave'
 " let g:airline_theme='seoul256'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_detect_spell=1
 let g:airline_detect_spelllang=1
@@ -621,8 +620,8 @@ let g:UltiSnipsEditSplit="vertical"
 set history=1000    " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
-
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 " Display all mathching files when we tab complete
 set wildmenu
@@ -646,6 +645,7 @@ set tags+=gems.tags;/
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
+
 " instruct the sh plugin to fall to Bash by default, rather than Bourne shell
 let g:is_bash=1
 
