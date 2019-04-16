@@ -183,12 +183,12 @@ augroup END
 call matchadd('ColorColumn', '\%81v', 100) " highligh 80's column with text
 " set colorcolumn=81 " highligh 80's column with ColorColumn hl-ColorColumn
 " https://github.com/morhetz/gruvbox/wiki/Terminal-specific
-let g:gruvbox_italic=1
 " let g:seoul256_background = 233
 " let g:seoul256_light_background = 256
 
 let g:gruvbox_contrast_dark="medium"
 let g:gruvbox_contrast_light="hard"
+let g:gruvbox_italic=1
 colorscheme gruvbox
 " colorscheme synthwave
 " colorscheme seoul256
