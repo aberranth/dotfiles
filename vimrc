@@ -74,6 +74,9 @@ Plugin 'junegunn/seoul256.vim'
 " Fsociety's synthwave theme
 Plugin 'exitface/synthwave.vim'
 
+" vim plugin for automatic keyboard layout switching in insert mode
+Plugin 'yokha/vim-xkbswitch'
+
 " lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -153,6 +156,15 @@ filetype plugin indent on    " required
 "filetype plugin on
 " }}}
 
+" detect OS {{{
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+" }}}
 " Terminal specific options {{{
 " check http://vimdoc.sourceforge.net/htmldoc/term.html#terminal-options
 " for details
@@ -170,9 +182,15 @@ endif
 " inside tmux and GNU screen
 set t_ut=
 " }}}
-" Colors (also ExtraWhiteSpace and 81's column highlight) {{{
-"
+" syntax highlight {{{
 syntax on
+augroup vimrc
+  autocmd!
+  autocmd BufWinEnter,Syntax * syn sync minlines=500 maxlines=500
+augroup END
+" }}}
+" Colors (also ExtraWhiteSpace and 81's column highlight) {{{
+
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 augroup MyColors
@@ -243,7 +261,7 @@ endif
 "}}}
 " Make the current window big, but leave others context {{{
 "
-set winwidth=114
+set winwidth=124
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
@@ -294,6 +312,7 @@ augroup vimrcEx
     autocmd FileType slim IndentLinesToggle
 
     autocmd BufRead *.axlsx set filetype=ruby
+    autocmd BufRead *.arb set filetype=ruby
 
     autocmd FileType python set shiftwidth=4 softtabstop=4 expandtab
 
@@ -345,8 +364,15 @@ nnoremap N Nzz
 
 map <leader>w :%s/\v\s+$//g<CR>
 
-map <leader>c :w !xclip<CR><CR>
-vmap <leader>c :w !xclip<CR><CR>
+if g:os == "Darwin"
+  map <leader>c :w !pbcopy<CR><CR>
+  vmap <leader>c :w !pbcopy<CR><CR>
+elseif g:os == "Linux"
+  map <leader>c :w !xclip<CR><CR>
+  vmap <leader>c :w !xclip<CR><CR>
+elseif g:os == "Windows"
+  echo "Doesn't work on windows"
+end
 
 " Open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -586,6 +612,9 @@ map <Leader>a :TestSuite<CR>
 " vim-vue {{{
 let g:vue_disable_pre_processors=0
 autocmd FileType vue syntax sync fromstart
+" }}}
+" vim-xkbdswitch {{{
+" let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " }}}
 "{{{ VimWiki
 autocmd FileType vimwiki setlocal nowrap spell

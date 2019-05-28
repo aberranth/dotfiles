@@ -12,13 +12,8 @@ alias la='ls -a'
 # -F, --classify -- append indicator (one of */=>@|) to entries
 alias l='ls -CF'
 
-alias open='xdg-open'
 alias rg='rg --smart-case'
 alias spotify='spotify --force-device-scale-factor=2'
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 alias ts='tmuxinator start'
 alias tns='trans -pager more --'
 alias csd='cap staging deploy'
@@ -27,6 +22,7 @@ alias gpu='git push'
 alias g='git'
 
 alias erb='erb -U'
+
 function _guard_command () {
     if [ -e "bin/guard" ]; then
         bin/guard "$@"
@@ -34,7 +30,7 @@ function _guard_command () {
         command guard "$@"
     fi
 }
-# alias guard='_guard_command'
+alias guard='_guard_command'
 
 function _rake_command () {
     if [ -e "bin/guard" ]; then
@@ -43,6 +39,26 @@ function _rake_command () {
         command rake "$@"
     fi
 }
-# alias rake='_rake_command'
-alias disable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+'` "Device Enabled" 0'
-alias enable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+'` "Device Enabled" 1'
+alias rake='_rake_command'
+
+function _rails_command () {
+    if [ -e "bin/rails" ]; then
+        bin/rails "$@"
+    else
+        command rails "$@"
+    fi
+}
+alias rails='_rails_command'
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform
+    :
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+    alias open='xdg-open'
+    # Add an "alert" alias for long running commands.  Use like so:
+    #   sleep 10; alert
+    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+    alias disable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+'` "Device Enabled" 0'
+    alias enable-touchpad='xinput set-prop `xinput list | grep -i touchpad | cut -f 2 | grep -oE '[[:digit:]]+'` "Device Enabled" 1'
+fi 
