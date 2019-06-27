@@ -395,13 +395,13 @@ you should place your code here."
           ))
 
   (setq org-todo-keyword-faces
-        '(("IDEA" . (:foreground "GoldenRod" :weight bold))
-          ("NEXT" . (:foreground "IndianRed1" :weight bold))
-          ("STARTED" . (:foreground "OrangeRed" :weight bold))
-          ("WAITING" . (:foreground "coral" :weight bold))
-          ("CANCELED" . (:foreground "LimeGreen" :weight bold))
+        '(("IDEA" .      (:foreground "GoldenRod" :weight bold))
+          ("NEXT" .      (:foreground "IndianRed1" :weight bold))
+          ("STARTED" .   (:foreground "OrangeRed" :weight bold))
+          ("WAITING" .   (:foreground "coral" :weight bold))
+          ("CANCELED" .  (:foreground "LimeGreen" :weight bold))
           ("DELEGATED" . (:foreground "LimeGreen" :weight bold))
-          ("SOMEDAY" . (:foreground "LimeGreen" :weight bold))
+          ("SOMEDAY" .   (:foreground "LimeGreen" :weight bold))
           ))
 
   (setq org-tag-persistent-alist
@@ -429,18 +429,18 @@ you should place your code here."
 
   (setq org-tag-faces
         '(
-          ("HOME" . (:foreground "GoldenRod" :weight bold))
+          ("HOME" .     (:foreground "GoldenRod" :weight bold))
           ("RESEARCH" . (:foreground "GoldenRod" :weight bold))
           ("TEACHING" . (:foreground "GoldenRod" :weight bold))
-          ("OS" . (:foreground "IndianRed1" :weight bold))
-          ("DEV" . (:foreground "IndianRed1" :weight bold))
-          ("WWW" . (:foreground "IndianRed1" :weight bold))
-          ("URGENT" . (:foreground "Red" :weight bold))
-          ("KEY" . (:foreground "Red" :weight bold))
-          ("EASY" . (:foreground "OrangeRed" :weight bold))
-          ("MEDIUM" . (:foreground "OrangeRed" :weight bold))
-          ("HARD" . (:foreground "OrangeRed" :weight bold))
-          ("BONUS" . (:foreground "GoldenRod" :weight bold))
+          ("OS" .       (:foreground "IndianRed1" :weight bold))
+          ("DEV" .      (:foreground "IndianRed1" :weight bold))
+          ("WWW" .      (:foreground "IndianRed1" :weight bold))
+          ("URGENT" .   (:foreground "Red" :weight bold))
+          ("KEY" .      (:foreground "Red" :weight bold))
+          ("EASY" .     (:foreground "OrangeRed" :weight bold))
+          ("MEDIUM" .   (:foreground "OrangeRed" :weight bold))
+          ("HARD" .     (:foreground "OrangeRed" :weight bold))
+          ("BONUS" .    (:foreground "GoldenRod" :weight bold))
           ("noexport" . (:foreground "LimeGreen" :weight bold))
           )
         )

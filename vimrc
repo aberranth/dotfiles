@@ -67,12 +67,15 @@ Plugin 'olegtc/vim-bbye'
 
 " Colorschemes
 " Retro groove color scheme for Vim
-Plugin 'morhetz/gruvbox'
+"Plugin 'morhetz/gruvbox'
+Plugin 'gruvbox-community/gruvbox'
 Plugin 'romainl/flattened'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'junegunn/seoul256.vim'
 " Fsociety's synthwave theme
 Plugin 'exitface/synthwave.vim'
+" Vim colors for the final frontier.
+Plugin 'jaredgorski/SpaceCamp'
 
 " vim plugin for automatic keyboard layout switching in insert mode
 Plugin 'yokha/vim-xkbswitch'
@@ -211,6 +214,8 @@ colorscheme gruvbox
 " colorscheme synthwave
 " colorscheme seoul256
 " colorscheme seoul256-light
+" colorscheme spacecamp_lite
+"
 set background=dark
 "}}}
 " UI {{{
@@ -314,6 +319,10 @@ augroup vimrcEx
     autocmd BufRead *.axlsx set filetype=ruby
     autocmd BufRead *.arb set filetype=ruby
 
+    " add yaml stuffs
+    " au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+    " autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
     autocmd FileType python set shiftwidth=4 softtabstop=4 expandtab
 
     autocmd! BufRead,BufNewFile *.sass setfiletype sass
@@ -323,6 +332,10 @@ augroup vimrcEx
     autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:&gt;
     autocmd BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:&gt;
     autocmd BufRead,BufNewFile *.md setlocal spell
+
+    " saves and restores manual folds and other stuff of a view
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* silent loadview
 
     " Don't syntax highlight markdown because it's often wrong
     autocmd! FileType mkd setlocal syn=off
@@ -345,18 +358,6 @@ augroup vimrcEx
 augroup END " }}}
 " Keymaps {{{
 "
-" use Tab key for autocompletion {{{
-function! InsertTabWrapper()
-    let col = col(".") - 1
-    if !col || getline(".")[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-p>
-"}}}
 
 " Show next matched string at the center of screen
 nnoremap n nzz
@@ -426,6 +427,26 @@ set nowritebackup
 set noswapfile
 " }}}
 
+" autocompletion {{{
+" use Tab key for autocompletion
+function! InsertTabWrapper()
+    let col = col(".") - 1
+    if !col || getline(".")[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-p>
+
+" set omnifunc=syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
+
+" Display all mathching files when we tab complete
+set wildmenu
+" }}}
+
 " A.L.E {{{
 let g:ale_fixers = {
             \'ruby': ['rubocop'],
@@ -491,6 +512,10 @@ map <leader>b  :CtrlPBuffer<cr>
 map <leader>r  :CtrlPMRU<cr>
 map <leader>F  :CtrlP %%<cr>
 "}}}
+" CtrlSF {{{
+map <Leader>sf <Plug>CtrlSFPrompt
+map <Leader>sw <Plug>CtrlSFVwordPath
+" }}}
 " pgsql {{{
 let g:sql_type_default = 'pgsql'
 " }}}
@@ -652,14 +677,9 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" Display all mathching files when we tab complete
-set wildmenu
-
 " Better copy & paste
 set pastetoggle=<F2>  " toggle pasting unmodified text from system clipboard
 set clipboard=unnamed " use system clipboard
-
-set omnifunc=syntaxcomplete#Complete
 
 " % to bounce from do to end etc.
 runtime! macros/matchit.vim
