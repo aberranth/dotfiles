@@ -440,8 +440,8 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-p>
 
-" set omnifunc=syntaxcomplete#Complete
-set omnifunc=ale#completion#OmniFunc
+set omnifunc=syntaxcomplete#Complete
+" set omnifunc=ale#completion#OmniFunc
 
 " Display all mathching files when we tab complete
 set wildmenu
