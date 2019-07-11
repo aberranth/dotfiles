@@ -363,6 +363,9 @@ augroup END " }}}
 nnoremap n nzz
 nnoremap N Nzz
 
+nnoremap gf gF
+nnoremap gF gf
+
 map <leader>w :%s/\v\s+$//g<CR>
 
 if g:os == "Darwin"
