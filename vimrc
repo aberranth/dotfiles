@@ -443,7 +443,7 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-p>
 
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 
 " Display all mathching files when we tab complete
@@ -518,6 +518,9 @@ map <leader>F  :CtrlP %%<cr>
 " CtrlSF {{{
 map <Leader>sf <Plug>CtrlSFPrompt
 map <Leader>sw <Plug>CtrlSFVwordPath
+" }}}
+" NerdTree {{{
+noremap <BS> :NERDTreeToggle<cr>
 " }}}
 " pgsql {{{
 let g:sql_type_default = 'pgsql'
