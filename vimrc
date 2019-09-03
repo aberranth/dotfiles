@@ -151,6 +151,16 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'tpope/vim-projectionist'
 " rails.vim inspired tools for Phoenix
 Plugin 'c-brenn/phoenix.vim'
+" A vim plugin that simplifies the transition between multiline and single-line
+" code
+Plugin 'AndrewRadev/splitjoin.vim'
+" Change an HTML(ish) opening tag and take the closing one along as well
+" Plugin 'AndrewRadev/tagalong.vim'
+" A simple Vim plugin to switch segments of text with predefined replacements
+" Plugin 'AndrewRadev/switch.vim'
+" A Vim plugin to move function arguments (and other delimited-by-something
+" items) left and right
+" Plugin 'AndrewRadev/sideways.vim'
 " ------------------------------------------------------------------------------
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
