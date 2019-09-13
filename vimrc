@@ -472,7 +472,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " Map movement through errors without wrapping.

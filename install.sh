@@ -49,6 +49,7 @@ ln -sf dotfiles/global-gitignore ~/.gitignore
 ln -sf dotfiles/bin  ~/.bin
 
 ln -sf dotfiles/pryrc ~/.pryrc
+ln -sf dotfiles/spring.rb ~/.spring.rb
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

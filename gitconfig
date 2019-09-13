@@ -24,3 +24,7 @@
     sapply = "!f() { git stash apply stash^{/$*}; }; f"
 [rerere]
     enabled = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
