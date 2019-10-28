@@ -4,6 +4,10 @@
 # User specific environment and startup programs
 export EDITOR='vim'
 export PATH=$PATH:$HOME/.bin:$HOME/bin:$HOME/.local/bin:/usr/local/heroku/bin
+if [ "$(uname)" == "Darwin" ]; then
+  # FUCKING macosx
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -41,3 +45,5 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+#ADDED BY 010 EDITOR
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"

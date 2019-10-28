@@ -17,3 +17,6 @@ gems.tags
 default.vim
 default.vim.lock
 
+# IDA files
+*.idb
+
