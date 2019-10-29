@@ -1,1 +1,1 @@
-sudo openvpn --config ~/projects/vpn/Sweden\ -\ Stockholm.ovpn --auth-user-pass ~/projects/vpn/frootvpn
+sudo openvpn --config ~/Dropbox/vpn/Sweden\ -\ Stockholm.ovpn --auth-user-pass ~/Dropbox/vpn/frootvpn

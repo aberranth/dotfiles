@@ -368,7 +368,11 @@ augroup vimrcEx
 augroup END " }}}
 " Keymaps {{{
 "
-
+" Resize windows using arrow keys
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 " Show next matched string at the center of screen
 nnoremap n nzz
 nnoremap N Nzz
