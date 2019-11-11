@@ -91,8 +91,8 @@ Plugin 'scrooloose/nerdtree'
 " Plugin 'tpope/vim-vinegar'
 " a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
-"" " use CTRL-A/CTRL-X to increment dates, times, and more
-"" Plugin 'tpope/vim-speeddating'
+" use CTRL-A/CTRL-X to increment dates, times, and more
+Plugin 'tpope/vim-speeddating'
 " Run your tests at the speed of thought
 Plugin 'janko-m/vim-test'
 " Vim sugar for the UNIX shell commands that need it the most.
@@ -199,7 +199,7 @@ set t_ut=
 syntax on
 augroup vimrc
   autocmd!
-  autocmd BufWinEnter,Syntax * syn sync minlines=500 maxlines=500
+  autocmd BufWinEnter,Syntax * syntax sync fromstart " minlines=500 maxlines=500
 augroup END
 " }}}
 " Colors (also ExtraWhiteSpace and 81's column highlight) {{{
