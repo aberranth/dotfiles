@@ -76,10 +76,6 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'exitface/synthwave.vim'
 " Vim colors for the final frontier.
 Plugin 'jaredgorski/SpaceCamp'
-
-" vim plugin for automatic keyboard layout switching in insert mode
-Plugin 'yokha/vim-xkbswitch'
-
 " lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
