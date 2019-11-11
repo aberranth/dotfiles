@@ -196,10 +196,12 @@ endif
 set t_ut=
 " }}}
 " syntax highlight {{{
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
 syntax on
 augroup vimrc
   autocmd!
-  autocmd BufWinEnter,Syntax * syntax sync fromstart " minlines=500 maxlines=500
+  " autocmd BufWinEnter,Syntax * syn sync  minlines=500 maxlines=500
+  autocmd BufWinEnter * syntax sync fromstart
 augroup END
 " }}}
 " Colors (also ExtraWhiteSpace and 81's column highlight) {{{
