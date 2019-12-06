@@ -4,9 +4,14 @@
 # User specific environment and startup programs
 export EDITOR='vim'
 export PATH=$PATH:$HOME/.bin:$HOME/bin:$HOME/.local/bin:/usr/local/heroku/bin
-if [ "$(uname)" == "Darwin" ]; then
-  # FUCKING macosx
+if [ "$(uname)" == "Darwin" ]; then # macosx is such a FUCKING PIECE OF SHIT!
   export BASH_SILENCE_DEPRECATION_WARNING=1
+  export PGDATA=/usr/local/var/postgres
+  #ADDED BY 010 EDITOR
+  export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
+else
+# ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 30E88B38-52F9-C6F4-3366-D54631498618
+  PATH=$PATH:/home/random/opt/010editor;export PATH;
 fi
 
 # Get the aliases and functions
@@ -14,7 +19,7 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# if [ "$(uname)" == "Darwin" ]; then
+# if [ "$(uname)" == "Darwin" ]; then # macosx is such a FUCKING PIECE OF SHIT!
 #     # Do something under Mac OS X platform
 #     if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 #         __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
@@ -36,7 +41,7 @@ fi
 # fi
 
 # brew install git bash-completion
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" == "Darwin" ]; then # macosx is such a FUCKING PIECE OF SHIT!
     [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
         # if not found in /usr/local/etc, try the brew --prefix location
         [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
@@ -45,5 +50,3 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-#ADDED BY 010 EDITOR
-export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
