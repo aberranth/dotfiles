@@ -534,6 +534,7 @@ map <Leader>sw <Plug>CtrlSFVwordPath
 " }}}
 " NerdTree {{{
 noremap <BS> :NERDTreeToggle<cr>
+let g:NERDTreeAutoDeleteBuffer=1
 " }}}
 " pgsql {{{
 let g:sql_type_default = 'pgsql'
