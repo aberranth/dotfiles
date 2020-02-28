@@ -323,7 +323,6 @@ augroup vimrcEx
     autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
     autocmd FileType ruby compiler ruby
     autocmd FileType html,eruby let g:html_indent_tags = '\|p\|li\|dt\|dd'
-    autocmd FileType slim IndentLinesToggle
 
     autocmd BufRead *.axlsx set filetype=ruby
     autocmd BufRead *.arb set filetype=ruby
