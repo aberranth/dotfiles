@@ -312,8 +312,8 @@ augroup vimrcEx
     autocmd FileType text setlocal textwidth=78
 
     "for ruby, autoindent with two spaces, always expand tabs
-    autocmd FileType ruby,haml,eruby,yaml,html,sass,cucumber set ai shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType javascript,vue set ai shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType ruby,haml,eruby,yaml,html,sass,cucumber set autoindent shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType javascript,vue set autoindent shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType json,xml,c set autoindent shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType json,xml setlocal foldmethod=syntax
 
