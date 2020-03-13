@@ -20,6 +20,7 @@ alias csd='cap staging deploy'
 alias csr='cap staging puma:restart'
 alias gpu='git push'
 alias g='git'
+alias please='sudo'
 
 alias erb='erb -U'
 
