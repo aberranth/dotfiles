@@ -312,6 +312,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'prog-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
   (load-file "~/spacemacs/dash.el")
   (load-file "~/spacemacs/autothemer.el")
+  (load-file "~/spacemacs/z80-mode.el")
   ;; }}}
   )
 
