@@ -103,6 +103,8 @@ Plugin 'jceb/vim-orgmode'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
+" Jump to any definition and references 👁 IDE madness without overhead 🚀
+Plugin 'pechorin/any-jump.vim'
 " Asynchronous Lint Engine
 Plugin 'w0rp/ale'
 
