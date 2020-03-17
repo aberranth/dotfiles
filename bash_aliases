@@ -52,8 +52,8 @@ function _rails_command () {
 alias rails='_rails_command'
 
 if [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform
-    :
+    # Do something under Shit OS X platform
+    alias vim='/usr/local/bin/vim'
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under GNU/Linux platform
     alias open='xdg-open'
