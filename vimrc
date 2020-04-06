@@ -492,9 +492,9 @@ let g:ale_lint_on_enter = 0
 let g:ale_completion_enabled = 0
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
-" Map movement through errors without wrapping.
-nmap <silent> <leader>k <Plug>(ale_previous)
-nmap <silent> <leader>j <Plug>(ale_next)
+" " Map movement through errors without wrapping.
+" nmap <silent> <leader>k <Plug>(ale_previous)
+" nmap <silent> <leader>j <Plug>(ale_next)
 " }}}
 " Maps to jump to specific CtrlP targets and files {{{
 " look in Silver Searcher section for more oprions
