@@ -68,13 +68,11 @@ Plugin 'olegtc/vim-bbye'
 " Colorschemes
 " Retro groove color scheme for Vim
 Plugin 'gruvbox-community/gruvbox'
-Plugin 'romainl/flattened'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'junegunn/seoul256.vim'
-" Fsociety's synthwave theme
-Plugin 'exitface/synthwave.vim'
-" Vim colors for the final frontier.
-Plugin 'jaredgorski/SpaceCamp'
+"
+Plugin 'rafi/awesome-vim-colorschemes'
+"
+Plugin 'xolox/vim-colorscheme-switcher'
+
 " lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -218,16 +216,31 @@ call matchadd('ColorColumn', '\%81v', 100) " highligh 80's column with text
 " let g:seoul256_background = 233
 " let g:seoul256_light_background = 256
 
-let g:gruvbox_contrast_dark="medium"
+set background=dark
+let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
 let g:gruvbox_italic=1
-colorscheme gruvbox
-" colorscheme synthwave
-" colorscheme seoul256
-" colorscheme seoul256-light
-" colorscheme spacecamp_lite
+
+colorscheme PaperColor
+
+let g:colorscheme_switcher_exclude = [
+      \'default',
+      \'zellner',
+      \'carbonized-light',
+      \'delek',
+      \'flattened_light',
+      \'fogbell_light',
+      \'github',
+      \'lightning',
+      \'lucid',
+      \'morning',
+      \'OceanicNextLight',
+      \'one',
+      \'peachpuff',
+      \'pyte',
+      \'seoul256-light'
+      \]
 "
-set background=dark
 "}}}
 " UI {{{
 set shortmess+=I   "remove useless splash screen
@@ -402,8 +415,8 @@ noremap <F1> <Esc>
 vnoremap <F1> <Esc>
 inoremap <F1> <Esc>
 " F8 toggles showing non-printable characters
-noremap <F8> :set list!<CR>
-inoremap <F8> <Esc>:set list!<CR>a
+noremap <F9> :set list!<CR>
+inoremap <F9> <Esc>:set list!<CR>a
 
 " Bind nohl
 " Removes highlight of your last search
@@ -593,9 +606,11 @@ nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
 " }}}
 " vim-airline {{{
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
 " let g:airline_theme='synthwave'
 " let g:airline_theme='seoul256'
+let g:airline_section_b = ''
+
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline_detect_spell=1
@@ -674,7 +689,8 @@ let wiki.nested_syntaxes = {
             \'json': 'json',
             \'js': 'javascript',
             \'yaml': 'yaml',
-            \'sh': 'sh'}
+            \'sh': 'sh'
+            \}
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 let g:vimwiki_dir_link = 'index'
 " ''       Disable folding.
